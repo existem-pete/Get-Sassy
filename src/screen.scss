@@ -39,7 +39,7 @@ $link-respond	: #319C95;
 	-webkit-text-size-adjust:none; 				// Stop iPhone from scaling text upwards
 }
 
-//Blockquotes, per language style
+//Blockquotes, per language style - hat tip http://thatcoolguy.github.com/gridless-boilerplate/
 @mixin blockquotes {
 	// English UK
 	html[lang="en-GB"] blockquote { 
@@ -85,7 +85,7 @@ body {
 	@include advancedtype;
 }
 
-// Bloody Tables
+// Bloody Tables - hat tip http://thatcoolguy.github.com/gridless-boilerplate/
 table { border-collapse: collapse; border-spacing: 0; }
 th { text-align: left;}
 tr, th, td { padding-right: 1.625em; }
@@ -126,7 +126,7 @@ ol {
 @import "forms"; // Import form styles
 
 
-// After imports and media queries
+// After imports and media queries - http://thatcoolguy.github.com/gridless-boilerplate/
 // -----------------------------------------------------------
 
 // Media
