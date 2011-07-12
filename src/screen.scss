@@ -1,0 +1,146 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities";
+
+// Variables, extends and mixins 
+//-----------------------------------------------------------
+
+// Colours
+$text			: #555;
+$link			: #D93B18;
+$link-respond	: #319C95;
+
+// Typography
+.serif {
+	font-family: Georgia, serif; 
+}
+
+.sans {
+	font-family: Arial, sans-serif; 
+}
+
+// Hyphens 
+@mixin hyphen {
+	hyphenate: auto; 
+	hyphenate-lines: 3; 
+	hyphens: auto; 
+	hyphenate-character: "\2010"; 
+	hyphenate-limit-chars: auto 3; 
+	hyphenate-limit-last: page; 
+}
+
+// Advanced typography settings
+@mixin advancedtype {
+	font-synthesis: none; 						// Don't allow the font to create sythetic bold/italic
+	font-variant-ligatures: normal;  			// Set the default for ligatures
+	font-kerning: normal; 						// Set the default for kerning
+	text-rendering: optimizeLegibility; 		// Improve kerning pairs
+	-webkit-font-smoothing: antialiased; 		// Improve safari's legibility somewhat
+	-webkit-text-size-adjust:none; 				// Stop iPhone from scaling text upwards
+}
+
+//Blockquotes, per language style
+@mixin blockquotes {
+	// English UK
+	html[lang="en-GB"] blockquote { 
+		quotes:"\2018" "\2019"; 
+	}
+	// English US
+	html[lang="en-US"] blockquote { 
+		quotes:"\201C" "\201D"; 
+	}
+	blockquote {
+		display:block;
+		p {
+			display:inline;
+		}
+		&:before {
+			content: open-quote; 
+		}
+		&:after {
+			content: close-quote; 
+		}
+	}
+}
+
+
+// Clearfix extend
+.clearfix { @include pie-clearfix; }
+
+// Global styles
+//-----------------------------------------------------------
+
+::-moz-selection { color:#fff; background:$link; }
+::selection { color:#fff; background:$link; }
+
+//html {
+	//font-size:62.5%; // Reset to 10px if we'd rather work from a round base
+//}
+
+body { 
+	font-size: 100%; 
+	line-height: 1.4;
+	@extend .serif;
+	color:$text;
+	@include advancedtype;
+}
+
+// Bloody Tables
+table { border-collapse: collapse; border-spacing: 0; }
+th { text-align: left;}
+tr, th, td { padding-right: 1.625em; }
+
+a {
+	color:$link;
+	@include transition-property(color); @include transition-duration(0.3s); @include transition-timing-function(ease-in-out);
+	word-wrap:break-word; // Break long links over several lines if needed
+	&:hover, &:focus, &:active {
+		color:$link-respond;
+	}
+}
+
+p { 
+	@include hyphen;
+}
+
+strong, b {
+	font-weight:600;
+}
+
+em, i ,q {
+	font-style:italic;
+}
+
+@include blockquotes; // Import blockquote styles
+
+ul { 
+	list-style-position: outside; 
+	list-style-type: disc; 
+}
+
+ol { 
+	list-style-position: outside; 
+	list-style-type: decimal; 
+}
+
+@import "forms"; // Import form styles
+
+
+// After imports and media queries
+// -----------------------------------------------------------
+
+// Media
+figure { margin:0; }
+
+img, 
+object, 
+embed, 
+video {
+	max-width: 100%; // Consider this first: http://unstoppablerobotninja.com/entry/fluid-images/ */
+	_width: 100%; // If the image/video is smaller than the container, change the 100% to an absolute value */
+}
+
+img { 
+	border: 0; 
+	-ms-interpolation-mode: bicubic; 
+}
