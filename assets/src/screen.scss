@@ -31,12 +31,12 @@ $link-respond	: #319C95;
 
 // Advanced typography settings
 @mixin advancedtype {
-	font-synthesis: none; 						// Don't allow the font to create sythetic bold/italic
-	font-variant-ligatures: normal;  			// Set the default for ligatures
-	font-kerning: normal; 						// Set the default for kerning
-	text-rendering: optimizeLegibility; 		// Improve kerning pairs
-	-webkit-font-smoothing: antialiased; 		// Improve safari's legibility somewhat
-	-webkit-text-size-adjust:none; 				// Stop iPhone from scaling text upwards
+	font-synthesis: none; 							// Don't allow the font to create sythetic bold/italic
+	font-variant-ligatures: contextual;  			// Set the default for ligatures
+	font-kerning: normal; 							// Set the default for kerning
+	text-rendering: optimizeLegibility; 			// Improve kerning pairs
+	-webkit-font-smoothing: antialiased; 			// Improve safari's legibility somewhat
+	-webkit-text-size-adjust:none; 					// Stop iPhone from scaling text upwards
 }
 
 //Blockquotes, per language style - hat tip http://thatcoolguy.github.com/gridless-boilerplate/
