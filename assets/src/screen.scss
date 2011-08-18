@@ -22,8 +22,10 @@ $link-respond	: #319C95;
 // Hyphens 
 @mixin hyphen {
 	hyphenate: auto; 
-	hyphenate-lines: 3; 
-	hyphens: auto; 
+	hyphenate-lines: 3;  
+	-webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 	hyphenate-character: "-"; 
 	hyphenate-limit-chars: auto 3; 
 	hyphenate-limit-last: page; 
@@ -35,7 +37,7 @@ $link-respond	: #319C95;
 	font-variant-ligatures: contextual;  			// Set the default for ligatures
 	font-kerning: normal; 							// Set the default for kerning
 	text-rendering: optimizeLegibility; 			// Improve kerning pairs
-	-webkit-font-smoothing: antialiased; 			// Improve safari's legibility somewhat
+	//-webkit-font-smoothing: antialiased; 			// Improve (or in some cases royally fuck) safari's legibility somewhat
 	-webkit-text-size-adjust:none; 					// Stop iPhone from scaling text upwards
 }
 
@@ -78,8 +80,8 @@ $link-respond	: #319C95;
 //}
 
 body { 
-	font-size: 100%; 
-	line-height: 1.4;
+	//font-size: 100%; 
+	//line-height: 1.4;
 	@extend .serif;
 	color:$text;
 	@include advancedtype;
@@ -107,7 +109,7 @@ strong, b {
 	font-weight:600;
 }
 
-em, i ,q {
+em, i, q {
 	font-style:italic;
 }
 
