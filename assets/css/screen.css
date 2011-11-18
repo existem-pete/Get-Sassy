@@ -61,6 +61,7 @@ header, footer, section, article, nav, menu, figure, figcaption, aside, hgroup {
 /* ----------------------------------------------------------- */
 body {
   color: #555555;
+  font-variant-ligatures: contextual;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: none;

@@ -38,7 +38,7 @@ $link-respond	: #319C95;
 // Advanced typography settings
 @mixin advancedtype {
 	//font-synthesis: none; 						// Don't allow the font to create sythetic bold/italic
-	//font-variant-ligatures: contextual;  			// Set the default for ligatures
+	font-variant-ligatures: contextual;  			// Set the default for ligatures
 	//-moz-font-feature-settings: "liga=1,dlig=1";
 	//-webkit-font-smoothing: antialiased; 			// Improve (or in some cases royally fuck) safari's legibility somewhat
 	font-kerning: normal; 							// Set the default for kerning
