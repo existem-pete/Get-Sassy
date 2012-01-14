@@ -1,9 +1,24 @@
+// Imports pre-render 
+// ------------------------------------------------------------
+
+@import "mixins";
+
+
+// Colours
+// ------------------------------------------------------------
+
+$text			: #505050;
+$headers		: $text;
+$link			: $text;
+$link-respond	: $text;
+
+
 /* Simple reset*/
 /* ---------------------------------------------------------- */
+
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin: 0; padding: 0; }
 table { border-collapse: collapse; border-spacing: 0; }
 th { text-align: left;}
-//tr, th, td { padding-right: 1.625em; }
 fieldset, img { border: 0; }
 address, caption, cite, code, dfn, em, strong, th, var { font-style: normal; font-weight: normal; }
 ol, ul { list-style: none; }
@@ -12,13 +27,13 @@ h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; }
 q:before, q:after { content: ''; }
 abbr, acronym { border: 0; }
 header, footer, section, article, nav, menu, figure, figcaption, aside, hgroup { display: block; }
+.clearfix { @include pie-clearfix; }
+.max_width { max-width: 100%; }
+img { border: 0; -ms-interpolation-mode: bicubic; image-rendering: optimizeQuality; }
+::-moz-selection { color:#fff; background:$link; } ::selection { color:#fff; background:$link; }
 
 
-// Import mixins
-@import "mixins";
-
-/* ----------------------------------------------------------- */
-/* Global styles */
+/* Global defaults */
 /* ----------------------------------------------------------- */
 
 html {
@@ -26,64 +41,42 @@ html {
 }
 
 body { 
-	@extend .serif;
 	color:$text;
-	@include advancedtype;
 }
 
 
 a {
 	color:$link;
-	// @include color_transition;
-	word-wrap:break-word; // Break long links over several lines if needed
-	&:hover, &:focus, &:active {
-		color:$link-respond;
-	}
+	word-wrap: break-word;
+	&:hover, &:focus, &:active { color:$link-respond; }
 }
 
-::-moz-selection { color:#fff; background:$link; }
-::selection { color:#fff; background:$link; }
 
-/* ---------------------------------------------------------- */
-/* Typography */
+/* Global typography */
 /* ---------------------------------------------------------- */
 
-// Text type
-.serif { font-family: Georgia, serif; }
-.sans { font-family: Arial, sans-serif; }
+.serif 	{ font-family: Georgia, serif; }
+.sans 	{ font-family: Arial, sans-serif; }
 
 
-p, li { @include hyphen; }
-strong, b { font-weight:600; }
-em, i, q { font-style:italic; }
-
-// Import blockquote styles
-@include blockquotes; 
+p, li 		{ @include hyphen; }
+strong, b 	{ font-weight: 600; }
+em, i, q 	{ font-style: italic; }
 
 
-/* ----------------------------------------------------------- */
-/* Page styles */
-/* ----------------------------------------------------------- */
 
-.clearfix { @include pie-clearfix; }
+/* Extras */
+/* ---------------------------------------------------------- */
 
-section {
-	@extend .clearfix;
+/* Hide things */
+.hide, .hidefromiphone, .hidefromphone, .hidefromipad, .hidefromtablet .hidefromdesktop {
+	display: none;
+	height: 0;
+	text-indent: -999em;
 }
 
-/* ----------------------------------------------------------- */
-/* Forms */
-/* ----------------------------------------------------------- */
+.hangbullet { list-style-position: outside; }
 
-@import "forms"; // Import form styles
-
-
-/* ----------------------------------------------------------- */
-/* Image manipulations */
-/* ----------------------------------------------------------- */
-
-img { 
-	border: 0; 
-	-ms-interpolation-mode: bicubic; 
-	image-rendering: optimizeQuality;
-}
+.case_up 	{ text-transform: uppercase; letter-spacing: 2px; /* I like to kern my uppercase text a bit */ }
+.case_low 	{ text-transform: lowercase; }
+.case_reset { text-transform: capitalize; }

@@ -1,29 +1,28 @@
 @import "compass/css3";
 @import "compass/utilities";
 
-//-----------------------------------------------------------
-// Global variables, extends and mixins
-//-----------------------------------------------------------
 
-// Colours
-$text			: #555;
-$link			: #D93B18;
-$link-respond	: #319C95;
+// List styles
+// -------------------------------------------------------
 
+@mixin unordered {
+	 list-style-position: inside; 
+	 list-style-type: disc;
+}
 
-/* ---------------------------------------------------------- */
-/* Media definers */
-/* ---------------------------------------------------------- */
+@mixin ordered {
+	list-style-position: inside; 
+	list-style-type: decimal;
+}
 
-.max-width-media { max-width: 100%; _width: 100%; }
-
-
-// ---------------------------------------------------------- //
-// Typography
-// ---------------------------------------------------------- //
+@mixin nobullet {
+	list-style-type: none;
+}
 
 
 // Hyphens 
+// -------------------------------------------------------
+
 @mixin hyphen {
 	hyphenate: auto; 
 	hyphenate-lines: 3;  
@@ -36,55 +35,20 @@ $link-respond	: #319C95;
 }
 
 // Advanced typography settings
+// -------------------------------------------------------
+
 @mixin advancedtype {
-	//font-synthesis: none; 						// Don't allow the font to create sythetic bold/italic
 	font-variant-ligatures: contextual;  			// Set the default for ligatures
-	//-moz-font-feature-settings: "liga=1,dlig=1";
-	//-webkit-font-smoothing: antialiased; 			// Improve (or in some cases royally fuck) safari's legibility somewhat
 	font-kerning: normal; 							// Set the default for kerning
 	text-rendering: optimizeLegibility; 			// Improve kerning pairs
-	-webkit-text-size-adjust:none; 					// Stop iPhone from scaling text upwards
+	-webkit-text-size-adjust:none; 					// Stop iPhone from scaling text
+	//-moz-font-feature-settings: "liga=1,dlig=1";
+	//-webkit-font-smoothing: antialiased; 			// Improve (or in some cases royally fuck) safari's legibility somewhat
+	//font-synthesis: none; 						// Don't allow the font to create sythetic bold/italic
 }
 
-// Blockquotes, per language style - hat tip http://thatcoolguy.github.com/gridless-boilerplate/
-@mixin blockquotes {
-	// English UK
-	html[lang="en-GB"] blockquote { 
-		quotes:"\2018" "\2019"; 
-	}
-	// English US
-	html[lang="en-US"] blockquote { 
-		quotes:"\201C" "\201D"; 
-	}
-	blockquote {
-		display:block;
-		p {
-			display:inline;
-		}
-		&:before {
-			content: open-quote; 
-		}
-		&:after {
-			content: close-quote; 
-		}
-	}
-}
-
-// List styles
-@mixin unordered {
-	 list-style-position: outside; 
-	 list-style-type: disc;
-}
-
-@mixin ordered {
-	list-style-position: outside; 
-	list-style-type: decimal;
-}
-
-
-//-----------------------------------------------------------
 // Transitions
-//-----------------------------------------------------------
+// -------------------------------------------------------
 
 @mixin color_transition {
 	@include transition-property(color); 

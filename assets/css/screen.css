@@ -48,47 +48,52 @@ header, footer, section, article, nav, menu, figure, figcaption, aside, hgroup {
   display: block;
 }
 
-/* ---------------------------------------------------------- */
-/* Media definers */
-/* ---------------------------------------------------------- */
-.max-width-media {
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.max_width {
   max-width: 100%;
-  _width: 100%;
 }
 
-/* ----------------------------------------------------------- */
-/* Global styles */
-/* ----------------------------------------------------------- */
-body {
-  color: #555555;
-  font-variant-ligatures: contextual;
-  font-kerning: normal;
-  text-rendering: optimizeLegibility;
-  -webkit-text-size-adjust: none;
-}
-
-a {
-  color: #d93b18;
-  word-wrap: break-word;
-}
-a:hover, a:focus, a:active {
-  color: #319c95;
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  image-rendering: optimizeQuality;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #d93b18;
+  background: #505050;
 }
 
 ::selection {
   color: #fff;
-  background: #d93b18;
+  background: #505050;
 }
 
+/* Global defaults */
+/* ----------------------------------------------------------- */
+body {
+  color: #505050;
+}
+
+a {
+  color: #505050;
+  word-wrap: break-word;
+}
+a:hover, a:focus, a:active {
+  color: #505050;
+}
+
+/* Global typography */
 /* ---------------------------------------------------------- */
-/* Typography */
-/* ---------------------------------------------------------- */
-.serif, body {
+.serif {
   font-family: Georgia, serif;
 }
 
@@ -115,113 +120,29 @@ em, i, q {
   font-style: italic;
 }
 
-html[lang="en-GB"] blockquote {
-  quotes: "\2018" "\2019";
+/* Extras */
+/* ---------------------------------------------------------- */
+/* Hide things */
+.hide, .hidefromiphone, .hidefromphone, .hidefromipad, .hidefromtablet .hidefromdesktop {
+  display: none;
+  height: 0;
+  text-indent: -999em;
 }
 
-html[lang="en-US"] blockquote {
-  quotes: "\201C" "\201D";
+.hangbullet {
+  list-style-position: outside;
 }
 
-blockquote {
-  display: block;
-}
-blockquote p {
-  display: inline;
-}
-blockquote:before {
-  content: open-quote;
-}
-blockquote:after {
-  content: close-quote;
+.case_up {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* I like to kern my uppercase text a bit */
 }
 
-/* ----------------------------------------------------------- */
-/* Page styles */
-/* ----------------------------------------------------------- */
-.clearfix, section {
-  *zoom: 1;
-}
-.clearfix:after, section:after {
-  content: "";
-  display: table;
-  clear: both;
+.case_low {
+  text-transform: lowercase;
 }
 
-/* ----------------------------------------------------------- */
-/* Forms */
-/* ----------------------------------------------------------- */
-form {
-  margin: 0;
-}
-
-fieldset {
-  border: 0;
-  padding: 0;
-}
-
-label {
-  display: block;
-}
-
-textarea {
-  overflow: auto;
-  vertical-align: top;
-}
-
-legend {
-  *margin-left: -7px;
-}
-
-button,
-input,
-select,
-textarea {
-  display: block;
-  vertical-align: baseline;
-  *vertical-align: middle;
-  /* IE7 and older */
-}
-
-button,
-input {
-  line-height: normal;
-  *overflow: visible;
-}
-
-button, input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  cursor: pointer;
-  -webkit-appearance: button;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-}
-
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-button::-moz-focus-inner, input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/* ----------------------------------------------------------- */
-/* Image manipulations */
-/* ----------------------------------------------------------- */
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-  image-rendering: optimizeQuality;
+.case_reset {
+  text-transform: capitalize;
 }
